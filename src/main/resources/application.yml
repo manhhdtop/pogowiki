@@ -1,0 +1,59 @@
+# ===============================
+# Config
+# ===============================
+base-url: http://localhost:8080
+admin-endpoint: /admin
+file:
+  root-path: E:/workspace/toprate
+  upload-dir: /files
+# ===============================
+# Server
+# ===============================
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-stacktrace: never
+  tomcat:
+    max-swallow-size: -1
+# ===============================
+# DATABASE
+# ===============================
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pogowiki?createDatabaseIfNotExist=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    tomcat:
+      jmx-enabled: true
+  jpa:
+    show-sql: false
+    hibernate.ddl-auto: update
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 20MB
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri:
+  sql:
+    init:
+      platform: mysql
+# ===============================
+# AUTH0
+# ===============================
+auth0:
+  secret: 5UnlUTtgSToM
+app:
+  security:
+    jwt:
+      keystore-location: keys/jwt-keystore.jks
+      keystore-password: SvnjOWhinL3s
+      key-alias: taskmanagerjwt
+      private-key-passphrase: SvnjOWhinL3s
+  user:
+    default_password: taskmanager2021
